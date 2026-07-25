@@ -1,6 +1,14 @@
 # Xiaozhy-agent-to-wait-for-you-to-speak-after-waking-up.
 A solution to prevent the agent from speaking immediately after the wake word is uttered: with this instruction, the robot wakes up and waits for you to speak first.
 
+Thanks to everyone involved in this incredible Xiaozhi system specially "78 Xiaozhi" for giving us the opportunity to play and learn all about robotics and AI.
+
+Xiaozhi is much more than just a simple conversational system; it has the potential to become a robot on par with those from Tesla or Boston Dynamics.
+
+It’s about playing with code and creating without limits.
+
+Thank you, Xiaozhi.
+
 The 3-Step Concrete Solution
 
 The issue lies in the `ContinueWakeWordInvoke` function. Currently, depending on the `CONFIG_SEND_WAKE_WORD_DATA` setting, it may not be entering listening mode correctly. We are going to force listening mode, just as your second code snippet does.
