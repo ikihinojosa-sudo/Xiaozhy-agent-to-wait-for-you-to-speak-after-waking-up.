@@ -19,6 +19,7 @@ ________________________________________
 Step 2: Replace the function content
 CURRENT code (what you have in the base):
 
+
 cpp
 void Application::ContinueWakeWordInvoke(const std::string& wake_word) {
     // Check state again in case it was changed during scheduling
@@ -49,6 +50,9 @@ void Application::ContinueWakeWordInvoke(const std::string& wake_word) {
     SetListeningMode(GetDefaultListeningMode());
 #endif
 }
+
+
+
 NEW code (copy and paste this):
 
 cpp
@@ -72,6 +76,8 @@ void Application::ContinueWakeWordInvoke(const std::string& wake_word) {
     SetListeningMode(GetDefaultListeningMode());
 }
 
+
+
 What exactly changed?
 1.	I removed the entire #if CONFIG_SEND_WAKE_WORD_DATA ... #endif block.
 2.	I removed the lines that sent wake-word data to the server.
@@ -86,6 +92,8 @@ Step 3 (Optional but recommended): Modify HandleStateChangedEvent
 In the codebase, when entering `kDeviceStateListening` mode, there is a conditional configuration for wake word detection. To ensure consistent behavior, simplify it as shown in your second code snippet.
 Locate the `HandleStateChangedEvent()` function and, within it, the `case kDeviceStateListening:` block.
 CURRENT code (approximately lines 700–720):
+
+
 
 cpp
 case kDeviceStateListening:
@@ -120,7 +128,11 @@ case kDeviceStateListening:
     }
     break;
 
+    
+
 NEW code (replaces only the `case kDeviceStateListening:`):
+
+
 
 cpp
 case kDeviceStateListening:
@@ -143,6 +155,8 @@ case kDeviceStateListening:
         audio_service_.PlaySound(Lang::Sounds::OGG_POPUP);
     }
     break;
+
+    
 
 
 What exactly changed?
