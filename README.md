@@ -174,3 +174,6 @@ text
 And you should NOT immediately see something like << (which indicates that the LLM is speaking).
 
 Enjoy a more natural way to start the talking!
+
+
+Note: I’m not sure why the code is being split up in the window, and I don't quite know how to fix it. Simply copy each full text section and replace it in your document.
