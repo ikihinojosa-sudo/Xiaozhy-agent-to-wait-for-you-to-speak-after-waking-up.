@@ -3,11 +3,7 @@ A solution to prevent the agent from speaking immediately after the wake word is
 
 Thanks to everyone involved in this incredible Xiaozhi system specially "78 Xiaozhi" for giving us the opportunity to play and learn all about robotics and AI.
 
-Xiaozhi is much more than just a simple conversational system; it has the potential to become as incredible of those from Tesla or Boston Dynamics.
-
-It’s about playing with code and creating without limits.
-
-Thank you, Xiaozhi.
+Xiaozhi is much more than just a simple conversational system; it has the potential to make a robot as incredible of those from Tesla or Boston Dynamics.
 
 The 3-Step Concrete Solution
 
