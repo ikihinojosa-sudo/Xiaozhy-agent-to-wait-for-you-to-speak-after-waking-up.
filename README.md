@@ -31,8 +31,6 @@ void Application::ContinueWakeWordInvoke(const std::string& wake_word) {
         }
     }
 
-    
-    
     ESP_LOGI(TAG, "Wake word detected: %s", wake_word.c_str());
 #if CONFIG_SEND_WAKE_WORD_DATA
     // Encode and send the wake word data to the server
