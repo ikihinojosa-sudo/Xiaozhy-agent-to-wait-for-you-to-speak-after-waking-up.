@@ -4,6 +4,7 @@ A solution to prevent the agent from speaking immediately after the wake word is
 The 3-Step Concrete Solution
 
 The issue lies in the `ContinueWakeWordInvoke` function. Currently, depending on the `CONFIG_SEND_WAKE_WORD_DATA` setting, it may not be entering listening mode correctly. We are going to force listening mode, just as your second code snippet does.
+
 ________________________________________
 
 Step 1: Locate the `ContinueWakeWordInvoke` function
@@ -18,6 +19,7 @@ ________________________________________
 Step 2: Replace the function content
 CURRENT code (what you have in the base):
 
+cpp
 void Application::ContinueWakeWordInvoke(const std::string& wake_word) {
     // Check state again in case it was changed during scheduling
     if (GetDeviceState() != kDeviceStateConnecting) {
@@ -47,10 +49,9 @@ void Application::ContinueWakeWordInvoke(const std::string& wake_word) {
     SetListeningMode(GetDefaultListeningMode());
 #endif
 }
-
-
 NEW code (copy and paste this):
 
+cpp
 void Application::ContinueWakeWordInvoke(const std::string& wake_word) {
     // Check state again in case it was changed during scheduling
     if (GetDeviceState() != kDeviceStateConnecting) {
@@ -69,7 +70,7 @@ void Application::ContinueWakeWordInvoke(const std::string& wake_word) {
     // FORCE LISTENING MODE - This is the critical change
     play_popup_on_listening_ = true;
     SetListeningMode(GetDefaultListeningMode());
-
+}
 
 What exactly changed?
 1.	I removed the entire #if CONFIG_SEND_WAKE_WORD_DATA ... #endif block.
@@ -86,6 +87,7 @@ In the codebase, when entering `kDeviceStateListening` mode, there is a conditio
 Locate the `HandleStateChangedEvent()` function and, within it, the `case kDeviceStateListening:` block.
 CURRENT code (approximately lines 700–720):
 
+cpp
 case kDeviceStateListening:
     display->SetStatus(Lang::Strings::LISTENING);
     display->SetEmotion("neutral");
@@ -118,9 +120,9 @@ case kDeviceStateListening:
     }
     break;
 
-
 NEW code (replaces only the `case kDeviceStateListening:`):
 
+cpp
 case kDeviceStateListening:
     display->SetStatus(Lang::Strings::LISTENING);
     display->SetEmotion("neutral");
@@ -147,7 +149,6 @@ What exactly changed?
 1.	I removed the #ifdef CONFIG_WAKE_WORD_DETECTION_IN_LISTENING directive and its #else block.
 2.	Wake word detection is now always disabled when in listening mode (audio_service_.EnableWakeWordDetection(false);).
 3.	This prevents the wake word from being detected while the device is already listening.
-
 
 ________________________________________
 
