@@ -86,6 +86,9 @@ What exactly changed?
 o	play_popup_on_listening_ = true; (this ensures the "popup" sound plays on the speaker)
 o	SetListeningMode(GetDefaultListeningMode()); (this changes the state to kDeviceStateListening)
 
+
+Note: I’m not sure why the code is being split up in the window, and I don't quite know how to fix it. Simply copy each full text section and replace it in your document.
+
 ________________________________________
 
 Step 3 (Optional but recommended): Modify HandleStateChangedEvent
@@ -157,6 +160,7 @@ case kDeviceStateListening:
     break;
 
     
+Note: I’m not sure why the code is being split up in the window, and I don't quite know how to fix it. Simply copy each full text section and replace it in your document.
 
 
 What exactly changed?
@@ -189,5 +193,4 @@ And you should NOT immediately see something like << (which indicates that the L
 
 Enjoy a more natural way to start the talking!
 
-
-Note: I’m not sure why the code is being split up in the window, and I don't quite know how to fix it. Simply copy each full text section and replace it in your document.
+Meet the Robot (Activate subtitles in your lenguage): https://www.youtube.com/@aventuras-de-tamal
