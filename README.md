@@ -197,4 +197,3 @@ And you should NOT immediately see something like << (which indicates that the L
 
 Enjoy a more natural way to start the talking!
 
-Meet the Robot (Activate subtitles in your lenguage): https://www.youtube.com/@aventuras-de-tamal
