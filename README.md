@@ -5,6 +5,7 @@ Thanks to everyone involved in this incredible Xiaozhi system specially "78 Xiao
 
 Xiaozhi is much more than just a simple conversational system; it has the potential to make a robot as incredible of those from Tesla or Boston Dynamics.
 
+
 The 3-Step Concrete Solution
 
 The issue lies in the `ContinueWakeWordInvoke` function. Currently, depending on the `CONFIG_SEND_WAKE_WORD_DATA` setting, it may not be entering listening mode correctly. We are going to force listening mode, just as your second code snippet does.
